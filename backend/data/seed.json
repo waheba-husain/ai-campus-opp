@@ -1,0 +1,5 @@
+[
+    {"id":"1","title":"Smart India Hackathon 2026","type":"hackathon","organization":"Government of India (AICTE)","deadline":"2026-08-23","eligibility":"All UG/PG, team of 6","tags":["hackathon","national"],"summary":"India's largest nationwide hackathon.","source":"Unstop"},
+    {"id":"2","title":"Google Summer of Code 2026","type":"internship","organization":"Google","deadline":"2026-08-30","eligibility":"Students 18+","tags":["open-source","remote"],"summary":"Remote open-source program with stipend.","source":"Email"},
+    {"id":"3","title":"Inter-College AI Case Study Competition","type":"competition","organization":"IIM Lucknow","deadline":"2026-08-14","eligibility":"Any UG student","tags":["ai","case-study"],"summary":"Regional case competition on applied AI.","source":"WhatsApp"}
+  ]
