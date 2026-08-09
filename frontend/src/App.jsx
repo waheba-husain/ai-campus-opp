@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'https://ai-campus-opp.onrender.com';
 
 function urgencyClass(urgency) {
   if (urgency === 'urgent') return 'badge urgent';
