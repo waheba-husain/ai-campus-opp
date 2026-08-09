@@ -123,3 +123,25 @@ Include every opportunity given, sorted by score descending, score from 0-100.`;
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+
+app.post('/api/prep', async (req, res) => {
+    const { opportunity } = req.body;
+    if (!opportunity) return res.status(400).json({ error: 'opportunity is required' });
+  
+    const systemPrompt = `You are a prep coach for students. Given a hackathon/internship/competition/scholarship, generate a practical preparation plan. Respond with ONLY a JSON object, no preamble, no markdown fences:
+  {
+    "needsRegistration": boolean,
+    "registrationSteps": string[] (2-4 short steps, e.g. "Create a Devpost account", "Form a team of 4"),
+    "prepChecklist": string[] (3-6 short actionable items specific to this opportunity's type and theme),
+    "timeline": string (one short sentence suggesting how to pace prep given the deadline)
+  }`;
+  
+    const userText = `Opportunity: ${JSON.stringify(opportunity, null, 2)}`;
+  
+    try {
+      const plan = await callGroq(systemPrompt, userText);
+      res.json(plan);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
